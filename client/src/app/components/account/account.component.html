@@ -1,0 +1,46 @@
+<div *ngIf="(status=='login');then LOGOUT else LOGIN">here is ignored</div>
+
+<ng-template #LOGIN>
+	<form class="form-inline" (ngSubmit)="login()">
+		<div class="input-group col">
+		  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="email" name="name">
+		</div>
+		<div class="input-group col">
+		  <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" [(ngModel)]="password" name="pass">
+		</div>
+		<button type="submit" class="btn btn-sm btn-outline-primary d-block">Login</button>
+		<button type="button" class="btn btn-sm btn-outline-primary btn-space" (click)="open(content)">SignUp</button>
+	</form>
+
+
+	<ng-template #content let-c="close" let-d="dismiss">
+	  <div class="modal-header">
+	    <h4 class="modal-title">Sign Up</h4>
+	    <button type="button" class="close" aria-label="Close" (click)="d()">
+	      <span aria-hidden="true">&times;</span>
+	    </button>
+	  </div>
+
+	  <div class="modal-body">
+	    <form>
+			<div class="form-group col-8 mx-auto">
+			  <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="newEmail" name="name">
+			</div>
+			<br>
+			<div class="form-group col-8 mx-auto">
+			  <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" [(ngModel)]="newPassword" name="pass">
+			</div>
+		</form>
+	  </div>
+
+	  <div class="modal-footer" style="justify-content: center;">
+	    <button type="submit" class="btn btn-outline-dark" (click)="signup()">SignUp</button>
+	  </div>
+	</ng-template>
+
+	
+</ng-template>
+<ng-template #LOGOUT>
+	<span class="text-muted">Logged in as {{user}}</span>
+	<button class="btn btn-outline-primary" (click)="logout()">Logout</button>
+</ng-template>

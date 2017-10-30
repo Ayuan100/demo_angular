@@ -1,0 +1,34 @@
+<div draggable 
+	[dragHandle]="'.draggable'" 
+	[dragScope]="'canvas'" 
+	[dragData]="node" 
+	[dragImage] = ""
+	class="node" 
+	[ngStyle]="{'left.px':node.x, 'top.px':node.y}"
+	#nodeRef >
+	<!-- 输入端口 -->
+	<ul class="in-ports">
+		<li  *ngFor="let port of node.inPorts">
+			<inport [port]="port"></inport>
+		</li>
+	</ul>
+	<!-- 节点框 -->
+	<div class="node-body draggable">
+		<!-- 图标和名称 -->
+		<!-- <span class="icon"></span> -->
+		<span class="type draggable">
+			{{node.model.type}}
+		</span>
+		<span class="index draggable">{{node.index}}</span>
+		<input contenteditable="true" maxlength="8" class="name" value="{{node.name}}">
+	</div>
+	
+
+	<!-- 输出端口 -->
+	<ul class="out-ports">
+		<li  *ngFor="let port of node.outPorts">
+			<outport [port]="port"></outport>
+		</li>
+	</ul>
+	
+</div>	

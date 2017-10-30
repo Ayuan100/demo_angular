@@ -1,0 +1,18 @@
+.canvas {
+	margin: 0;
+	box-sizing: border-box;
+	height: 100%;
+	width: 98%;
+	border: 1px solid gray;
+	position: relative;
+	overflow: hidden;
+}
+
+.node-canvas, .svg-canvas{
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}

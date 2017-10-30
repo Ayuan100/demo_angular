@@ -1,0 +1,9 @@
+<ul>
+	<span *ngIf="modelList.length ==0">Loading</span>
+	<li draggable *ngFor="let model of modelList" 
+		[dragScope]="'canvas'" 
+		[dragData]="model"
+		(onDragEnd)="onDragEnd($event)" >
+			<model [model]=model></model>
+	</li>
+</ul>

@@ -1,0 +1,38 @@
+[
+	{
+		"model_type": "Model Type A",
+		"inPortNumber": 1,
+		"outPortNumber": 1,
+		"nodes": []
+	},
+	{
+		"model_type": "Model Type B",
+		"inPortNumber": 2,
+		"outPortNumber": 2,
+		"nodes": []
+	},
+	{
+		"model_type": "Model Type C",
+		"inPortNumber": 3,
+		"outPortNumber": 3,
+		"nodes": []
+	},
+	{
+		"model_type": "Model Type D",
+		"inPortNumber": 4,
+		"outPortNumber": 4,
+		"nodes": []
+	},
+	{
+		"model_type": "Model Type E",
+		"inPortNumber": 1,
+		"outPortNumber": 2,
+		"nodes": []
+	},
+	{
+		"model_type": "Model Type F",
+		"inPortNumber": 2,
+		"outPortNumber": 1,
+		"nodes": []
+	}
+]

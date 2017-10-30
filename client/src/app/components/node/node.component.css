@@ -1,0 +1,104 @@
+/*元素图标*/
+.node {
+	position: absolute;
+	z-index: 999;
+}
+/*.node:focus {
+	outline: none;
+}*/
+
+
+.node-body {
+	margin: 0;
+	margin-top: -1px;
+	margin-bottom: -1px;
+
+	height: 25px;
+	width: 220px;
+	border: 1px solid #000;
+	border-radius: 10px;
+	z-index: 999;
+	
+	/*display: table;*/
+	overflow: hidden;
+}
+.node-body:hover {
+	background-color: rgba(150, 200, 100, 0.6);
+}
+
+.icon {
+	float: left;
+	display: table-cell;
+	height: 20px;
+	width: 20px;
+	border-radius: 100%;
+	background-color: #289DE9;
+}
+.icon:before {
+	content: "\e616";
+	color: white;	
+	position: absolute;
+	left: 2px;
+	top: -3px;
+}
+.icon-drag {
+	position: absolute;
+}
+.circle {
+	position: absolute;
+	display: block;
+	height: 5px;
+	width: 5px;
+	border: 1px solid gray;
+	border-radius: 100%;
+}
+.type, .index{
+	display: inline-block;
+	/*position: absolute;*/
+	top: 0;
+	left: 20px;
+	height: 100%;
+	font-size: 12px;
+	line-height: 100%;
+	/*width: 50px;*/
+}
+.type:after, .index:after{
+	content: '- ';
+	color: gray;
+	margin-right: 5px;
+}
+.name {
+	outline: none;
+	border: 0;
+	display: inline-block;
+	width: 60px;
+	padding-bottom: 2px;
+	margin-top: -5px;
+	background-color: transparent;
+}
+.name:focus {
+	background-color: white;
+}
+
+/*.node-model {
+	position: relative;
+	margin: 10px auto;
+}
+.node-instance {
+	position: fixed;
+}*/
+ul {
+	display: table;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 6px;
+}
+li {
+	list-style: none;
+	display: table-cell;
+}
+
+
+
+

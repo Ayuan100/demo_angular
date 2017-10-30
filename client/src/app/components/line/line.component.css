@@ -1,0 +1,13 @@
+.curve {
+	/*fill: none;*/
+	fill-opacity: 0;
+	stroke: gray;
+	z-index: 999;
+}
+.curve:hover {
+	stroke-width: 3;
+}
+.curve:focus{
+	outline: none;
+}
+

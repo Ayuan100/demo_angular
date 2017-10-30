@@ -1,0 +1,17 @@
+.port {
+	display: block;
+	box-sizing: border-box;
+	margin: 0 auto;
+	height: 6px;
+	width: 6px;
+	border: 1px solid gray;
+	border-radius: 100%;
+}
+
+.unconnected.port:hover, .unconnected.hover {
+	border: 2px solid green;
+}
+.lightup {
+	border-width: 2px;
+	border-color: green;
+}

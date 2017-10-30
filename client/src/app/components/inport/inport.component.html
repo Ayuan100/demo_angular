@@ -1,0 +1,10 @@
+<div droppable 
+	[dropScope]="'inport'"
+	[dragHintClass]="'drag-hint-border'"
+	[dragOverClass]="'drag-target-border'"
+	(onDrop)="onDrop($event)"
+	class="port"
+	[ngClass]="{'unconnected':port.isConnected==false, 'lightup':lightup}"
+	#portRef>
+	 
+</div>
