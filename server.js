@@ -2,25 +2,25 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 
-var AV = require('leanengine');
+// var AV = require('leanengine');
 
-AV.init({
-  appId: process.env.LEANCLOUD_APP_ID || 'bge5CKmoAJPE9i6sRYwxGR7o-gzGzoHsz',
-  appKey: process.env.LEANCLOUD_APP_KEY || '7bL6JpB4u170eMN059PXBNBL',
-  masterKey: process.env.LEANCLOUD_APP_MASTER_KEY || 'cmaIBOdBrs7RiNUnMWHjxt2D'
-});
-console.log('port:',process.env.LEANCLOUD_APP_PORT);
+// AV.init({
+//   appId: process.env.LEANCLOUD_APP_ID || 'bge5CKmoAJPE9i6sRYwxGR7o-gzGzoHsz',
+//   appKey: process.env.LEANCLOUD_APP_KEY || '7bL6JpB4u170eMN059PXBNBL',
+//   masterKey: process.env.LEANCLOUD_APP_MASTER_KEY || 'cmaIBOdBrs7RiNUnMWHjxt2D'
+// });
+// console.log('port:',process.env.LEANCLOUD_APP_PORT);
 
 var app = express();
-app.use(AV.express());
-app.enable('trust proxy');
-app.use(AV.Cloud.HttpsRedirect());
+// app.use(AV.express());
+// app.enable('trust proxy');
+// app.use(AV.Cloud.HttpsRedirect());
 // console.log(AV);
 
 //View Engine
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'ejs');
+// app.engine('html', require('ejs').renderFile);
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'client/dist')));
@@ -34,7 +34,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 app.use(cookieParser());
 app.use(session({
-          secret: 'hello! TMY', 
+          secret: 'hello demo!', 
           resave: true, 
           saveUninitialized: true
         }));
