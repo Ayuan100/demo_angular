@@ -25,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "body {\n\theight: 100%;\n}\n#nav-bar {\n\twidth: 100%;\n\theight: 50px;\n}\n#account {\n\tfloat: right;\n}\n#model-list {\n\twidth: 300px;\n\theight: 90%;\n\tmargin: 0;\n}\n#my-canvas {\n\tposition: absolute;\n\tmargin: 0;\n\ttop: 50px;\n\tleft: 300px;\n\tright: 1px;\n\tbox-sizing: border-box;\n\theight: 90%;\n\toverflow: hidden;\n\t/*position: relative;*/\n}", ""]);
+exports.push([module.i, "body {\n\theight: 100%;\n}\n#nav-bar {\n\twidth: 100%;\n\theight: 50px;\n}\n#account {\n\tfloat: right;\n}\n#model-list {\n\twidth: 300px;\n\theight: 90%;\n\tmargin: 0;\n}\n#my-canvas {\n\tposition: absolute;\n\tmargin: 0;\n\ttop: 50px;\n\tleft: 300px;\n\tright: 1px;\n\tbox-sizing: border-box;\n\theight: 90%;\n\toverflow: hidden;\n\t/*position: relative;*/\n}\n\n#info {\n\tposition: absolute;\n\tleft: 50px;\n\ttop: 5px;\n}", ""]);
 
 // exports
 
@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav id=\"nav-bar\">\n\t<account id=\"account\" (onChange)=\"loginStatusChanged($event)\"></account>\n</nav>\n\n<div id=\"model-list\">\n\t<model-list></model-list>\n</div>\n\n<div id=\"my-canvas\">\n\t<my-canvas [status]=\"status\"></my-canvas>\n</div>\n\n\n\n"
+module.exports = "<nav id=\"nav-bar\">\n\t<account id=\"account\" (onChange)=\"loginStatusChanged($event)\"></account>\n</nav>\n\n<div id=\"model-list\">\n\t<model-list></model-list>\n</div>\n\n<div id=\"my-canvas\">\n\t<my-canvas [status]=\"status\"></my-canvas>\n</div>\n\n<a id=\"info\" href=\"https://github.com/Ayuan100/demo_angular\">DEMO说明及代码,服务器和数据库都是远程，有点卡。。。</a>\n\n\n"
 
 /***/ }),
 
@@ -319,7 +319,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/active-line/active-line.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\t<svg:path *ngIf=\"connecting\" id=\"active-line\" class='curve' [attr.d]=\"data\" marker-end=\"url(#markerArrow)\"></path>\n<!-- \t<svg:path class=\"curve\" marker-end=\"url(#markerArrow)\" d=\"M158 81 Q 158 83.5 311.5 86 T 465 91\"></path> -->\n"
+module.exports = "\t<svg:path *ngIf=\"connecting\" id=\"active-line\" class='curve' [attr.d]=\"data\"></path>\n<!-- \t<svg:path class=\"curve\" marker-end=\"url(#markerArrow)\" d=\"M158 81 Q 158 83.5 311.5 86 T 465 91\"></path> -->\n"
 
 /***/ }),
 
@@ -542,7 +542,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/line/line.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <svg> -->\n\t<svg:path class='curve' tabindex=\"1\" [attr.d]=\"data\" \n\t\t(click)=\"onClick()\"\n\t\t(focus)=\"onFocus()\"\n\t\t(keyup)=\"onKeyUp($event)\" marker-end=\"url(#markerArrow)\" />\n\n\n<!-- </svg> -->\n"
+module.exports = "<!-- <svg> -->\n\t<svg:path class='curve' tabindex=\"1\" [attr.d]=\"data\" \n\t\t(click)=\"onClick()\"\n\t\t(focus)=\"onFocus()\"\n\t\t(keyup)=\"onKeyUp($event)\" />\n\n\n<!-- </svg> -->\n"
 
 /***/ }),
 
@@ -826,7 +826,8 @@ var MyCanvasComponent = (function () {
     MyCanvasComponent.prototype.ngOnInit = function () {
     };
     MyCanvasComponent.prototype.ngOnChanges = function (changes) {
-        this.nodeService.fetchUserData();
+        if (this.status != 'temp')
+            this.nodeService.fetchUserData();
         // else this.modelList = [];
     };
     MyCanvasComponent.prototype.onModelDrop = function (e) {
@@ -1341,7 +1342,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var NodeService = (function () {
     function NodeService(http) {
         this.http = http;
-        this.modelList = [];
         this.userData = [];
         this.fetchUserData();
     }
@@ -1408,11 +1408,11 @@ var NodeService = (function () {
     };
     NodeService.prototype.fetchUserData = function () {
         var _this = this;
-        this.userData.length = 0;
         this.http.get('/update/getUserData')
             .map(function (res) { return res.json(); })
             .subscribe(function (models) {
             // var that = this;
+            _this.userData.splice(0, _this.userData.length);
             console.log('getUserData:', models);
             models.forEach(function (model) {
                 var newModel = new __WEBPACK_IMPORTED_MODULE_3__models_model__["a" /* ComputeModel */](model.model_type, model.inPortNumber, model.outPortNumber);

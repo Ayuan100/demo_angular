@@ -8,7 +8,6 @@ import { ComputeModel, ComputeNode, Port } from '../models/model';
 
 @Injectable()
 export class NodeService {
-  modelList: Array<ComputeModel> = [];
   userData : Array<ComputeModel> = [];
 
   constructor(private http: Http) {
@@ -86,11 +85,12 @@ export class NodeService {
   }
 
   fetchUserData(){
-    this.userData.length = 0;
+    
   	this.http.get('/update/getUserData')
   			.map(res => res.json())
             .subscribe(models =>{
                   // var that = this;
+                  this.userData.splice(0, this.userData.length);
                   console.log('getUserData:',models);
                   models.forEach(
                     model=>{

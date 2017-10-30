@@ -24,3 +24,9 @@ body {
 	overflow: hidden;
 	/*position: relative;*/
 }
+
+#info {
+	position: absolute;
+	left: 50px;
+	top: 5px;
+}

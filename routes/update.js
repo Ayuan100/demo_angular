@@ -52,6 +52,7 @@ router.get('/getUserData', function(req, res, next){
     var user;
     if (req.isAuthenticated()) user = req.user.email;
     else user = 'demo';
+    console.log('getUserData:', user);
     DemoUserData.find({user:user})
                 .exec(function(err, docs){
                     // console.log(err,docs);

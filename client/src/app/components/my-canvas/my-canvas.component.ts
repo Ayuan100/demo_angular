@@ -26,7 +26,7 @@ export class MyCanvasComponent implements OnInit {
 
   }
   ngOnChanges(changes: SimpleChange){
-      this.nodeService.fetchUserData();  
+      if(this.status != 'temp') this.nodeService.fetchUserData();  
     // else this.modelList = [];
   }
 

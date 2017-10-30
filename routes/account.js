@@ -20,7 +20,7 @@ router.post('/signup', function(req, res) {
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
     console.log('login request:',req.user.email);
-    req.session.userData = [];
+    // req.session.userData = [];
     // console.log('session:', req.session);
 
     res.json({"success":"success"});
